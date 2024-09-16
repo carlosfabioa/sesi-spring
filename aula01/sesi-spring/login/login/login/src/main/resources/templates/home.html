@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+
+<!-- Menu de navegação -->
+<nav id="menu">
+    <ul>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/perfil}">Perfil</a></li>
+        <li><a th:href="@{/configuracoes}">Configurações</a></li>
+        <li><a href="#" onclick="document.getElementById('logoutForm').submit()" style="cursor: pointer;">Logout</a></li>
+    </ul>
+     
+    
+</nav>
+
+<!-- Container principal -->
+<div id="main-container">
+    <h1>  <span th:text="${#authentication.name}"></span><br>	 Bem-vindo ao Sistema!</h1>
+    
+    <!-- Imagem -->
+    <img src="/images/atividades.jpg" alt="Imagem de boas-vindas" id="welcome-image">
+    
+    <!-- Texto explicativo -->
+    <p>
+        Este é o seu sistema para gerenciar suas atividades diárias. Aqui você pode acessar seu perfil, ajustar as configurações de conta e muito mais. 
+        Use o menu acima para navegar pelas funcionalidades disponíveis. Sinta-se à vontade para explorar!
+    </p>
+</div>
+
+<!-- Formulário escondido para realizar o logout via POST -->
+<form id="logoutForm" th:action="@{/logout}" method="post" style="display: none;">
+</form>
+
+</body>
+</html>
+
+
+
+
